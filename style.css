@@ -1,0 +1,64 @@
+/*
+Theme Name: Treville IGc Subsites (desenvolvendo)
+Theme URL: http://hostinger-tutorials.com 
+Description: Treville Child Theme for IGc Subsites
+Author: John Doe, Erickson Zanon
+Author URL: https://github.com/ezanon
+Template: treville
+Version: 0.1.0 
+Text Domain: treville-igc-subsites
+*/ 
+
+#cabecalhoIGc {
+    background-color: #ffffff;
+    display: flex;
+}
+#logoIGc {
+    display: block;
+    float: left;
+}
+#logoIGc img {
+    width: 300px;
+    padding: 3px 0 3px 0;
+}
+#utilsIGc {
+    display: block;
+    float: right;
+    color: darkgreen;
+    padding: 26px 0 0 0;
+}
+#utilsIGc button {
+    background: #454545;
+}
+
+/**********************************
+/*Ajustes WP
+/**********************************/
+
+/* imagem alinhada a esquerda do texto */
+.wp-block-image .alignleft {
+    margin-right: 2em;
+}
+
+/* imagem alinhada a esquerda do texto */
+.wp-block-image .alignright {
+    margin-left: 2em;
+}
+
+/* ? */
+.wp-block-image .aligncenter {
+    margin: auto;
+}
+
+/* link para arquivos */
+.wp-block-file {
+    background-color: whitesmoke;
+    padding: 5px 10px 5px 15px;
+}
+.wp-block-file::before {
+    content: ">> ";
+}
+
+.more-link {
+    float: right;
+}
