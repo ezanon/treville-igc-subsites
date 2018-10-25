@@ -62,3 +62,14 @@ Text Domain: treville-igc-subsites
 .more-link {
     float: right;
 }
+
+/* tamanho do título de um post */
+h2.entry-title {
+    font-size: 1.5rem;
+}
+.entry-categories {
+    margin: 0;
+}
+.entry-header {
+    padding: 1.5em 1.5em 0 1.5em;
+}
