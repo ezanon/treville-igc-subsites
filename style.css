@@ -73,3 +73,8 @@ h2.entry-title {
 .entry-header {
     padding: 1.5em 1.5em 0 1.5em;
 }
+
+/* hr para separar melhor texto com imagem do bloco seguinte */
+.wp-block-separator {
+    clear: both;
+}
