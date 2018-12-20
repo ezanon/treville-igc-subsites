@@ -30,7 +30,7 @@
                     <div id="cabecalhoIGc" class="flex-container">
                         <div id="allIGc" class="container">
                             <div id="logoIGc">
-                                <a href="http://sites.igc.usp.br"><img src="/wp-content/themes/treville-igc-subsites/igcLogotipoColorido.png" /></a>
+                                <a href="http://igc.usp.br"><img src="/wp-content/themes/treville-igc-subsites/igcLogotipoColorido.png" /></a>
                             </div>
                             <div id="utilsIGc">
                                 
