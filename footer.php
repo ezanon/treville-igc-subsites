@@ -20,7 +20,7 @@
 			<?php do_action( 'treville_footer_menu' ); ?>
 
 			<div id="footer-text" class="site-info">
-                            Direitos Reservados © 1999-<?php echo date('Y');?> Instituto de Geociências - Universidade de São Paulo :: <a href="/creditos">Créditos</a>
+                            Direitos Reservados © 1999-<?php echo date('Y');?> Instituto de Geociências - Universidade de São Paulo
 			</div><!-- .site-info -->
 
 		</footer><!-- #colophon -->
