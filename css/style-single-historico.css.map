@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,IAAK;EACD,OAAO,EAAE,IAAI;EACb,UAAU,EALD,OAAO;;AAOpB,kBAAmB;EACf,OAAO,EAAE,IAAI;EACb,UAAU,EARD,OAAO;;AAUpB,UAAW;EACP,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,GAAG",
+"sources": ["../scss/style-single-historico.scss"],
+"names": [],
+"file": "style-single-historico.css"
+}

@@ -1,0 +1,18 @@
+.timeline {
+  width: 100%;
+  position: relative;
+  margin-top: 0px;
+}
+.timeline-year {
+    right:auto;
+    left: 0;
+}
+.timeline-slide{
+    background-position: top left; 
+}
+.timeline-slide__content {
+    padding: 20px;
+}
+.timeline .slick-current .timeline-slide__content{
+    opacity: 0.9;
+}
