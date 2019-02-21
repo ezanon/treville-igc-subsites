@@ -25,7 +25,7 @@ $uri = get_stylesheet_directory_uri();
 // historico *start*                  
 $posts = get_posts(array(
    'post_type' => 'historico', 
-   'posts_per_page' => 20,
+   'posts_per_page' => -1,
    'meta_key' => 'data',
    'orderby' => 'meta_value',
    'order' => 'ASC'
@@ -39,6 +39,7 @@ $i =0;
 if ($posts){
 
     foreach($posts as $post){
+        $k = 0; // se maior que 0 mostrará link para mais informações
         $i++;
         setup_postdata($post);
 
@@ -54,16 +55,16 @@ if ($posts){
 
         // data
         // reformata data
-/*        $data = explode("/", $data);
-        $dataF = '';
-        $dataB = '';
-        foreach ($data as $i=>$d){
-            if ($i==0){ //ano
+        $dataA = explode("/", $data);        
+        $dataF = ''; // por ex 2018, Ago 27
+        $dataB = ''; // por ex 27/08/1978
+        foreach ($dataA as $j=>$d){
+            if ($j==0){ //ano
                 $Y = $d;
                 $dataF.= $d;
                 $dataB = $d;
             }
-            elseif ($i==1){ // mes
+            elseif ($j==1){ // mes
                 $dataF.= ", ";
                 $dataB = $d . '/' . $dataB;
                 switch ($d){
@@ -82,13 +83,13 @@ if ($posts){
                     break;
                 }
             }
-            elseif ($i==2) { // dia
+            elseif ($j==2) { // dia
                 $dataF.= " " . $d;
                 $dataB = $d . '/' . $dataB;
             }
         }
-        $data = $dataB;*/
-        $timelineNav[$i] = $data; //the_field('data');
+
+        $timelineNav[$i] = $dataB; //the_field('data');
 
         // titulo
         //echo the_field('titulo') . "<br>";
@@ -103,8 +104,7 @@ if ($posts){
 
         //texto
         //echo $texto . "<br>";
-        $texto = "<p class='texto timeline-text'>{$texto}</p>\n";
-        $texto = '';
+        if ($texto) $k++;
 
         // imagem
         $imagem = get_field('imagem');
@@ -112,25 +112,20 @@ if ($posts){
 
         // arquivo pdf
         $pdf = get_field('arquivo');
-        if ($pdf) {
-            $url = $pdf['url'];
-            $title = $pdf['title'];
-            //echo "<a href='$url' target=_blank>$title</a>";
-            $pdfLink = "<p class='arquivo timeline-text'><a href='$url' target=_blank>$title</a></p>\n";
-        }
-        $pdfLink = '';
+        if ($pdf) $k++;
+        
+        // verifica se mostrará link para mais informações
+        if ($k==0) $link = '';
         
         $timelineWrapper[$i] = "                
-                <div class='timeline-slide' style='background-image: url({$imagem['url']});' data-year='{$data}'>
-                <span class='timeline-year'>{$data}</span>
+                <div class='timeline-slide' style='background-image: url({$imagem['url']});' data-year='{$dataB}'>
+                <span class='timeline-year'>{$dataF}</span>
                 <div class='timeline-slide__content'>
                         <h4 class='titulo timeline-title'>{$titulo}</h4>
                         {$resumo}
-                        $texto
-                        $pdfLink
                         $link
                 </div></div>\n";
-        
+                        
         // limpa variaveis
         $titulo = '';
         $data = '';
@@ -139,6 +134,19 @@ if ($posts){
         $pdfLink = '';
         $link = '';
     }
+}
+else {
+    ?>
+    <div class="container">
+    <h1 class="title">Não há histórico cadastrado.</h1>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js'></script>
+    <script  src="<?php echo $uri; ?>/historico-template/ps-group-timeline-2/js/index.js"></script>
+    </body>
+    </html>    
+    <?php
+    die();
 }
 wp_reset_postdata();
 ?> 
